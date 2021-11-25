@@ -4,16 +4,25 @@ public class TrainingField
 {
 	public static void main(String args[])
 	{
-		ReVector<Integer> vector = new ReVector<Integer>(10, 5);
+		ReVector<Integer> vector = new ReVector<Integer>(5, 5);
+		ReVector<Integer> vector2 = new ReVector<Integer>(5, 5);
 		vector.add(0, 1);
 		vector.add(1, 2);
-		vector.add(2, 4);
-		vector.add(3, 8);
+		vector.add(2, 3);
+		vector.add(3, 4);
+		vector.add(4, 5);
+		
+		vector2.add(0, 5);
+		vector2.add(1, 4);
+		vector2.add(2, 3);
+		vector2.add(3, 2);
+		vector2.add(4, 1);
+		
 		for(int i = 0; i < vector.capacity(); i++)
 			System.out.println((i) + ")" + vector.get(i));
 		System.out.println();
 		
-		vector.offsetAdd(1, 3);
+		vector.offsetAdd(4, vector2);
 		
 		for(int i = 0; i < vector.capacity(); i++)
 			System.out.println((i) + ")" + vector.get(i));

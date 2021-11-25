@@ -66,13 +66,13 @@ public class ReVector <T>
 	}
 	
 	//бярюбхрэ бейрнп ян ялеыемхел
-	void offsetAdd(int offset, T _o)
+	void offsetAdd(int offset, ReVector a)
 	{
 		Object[] temp = _array.clone();
-		_array = new Object[temp.length + 1];
+		_array = new Object[temp.length + a._array.length];
 		System.arraycopy(temp, 0, _array, 0, offset);
-		_array[offset] = _o;
-		System.arraycopy(temp, offset , _array, offset + 1, temp.length - offset);
+		System.arraycopy(a._array, 0 , _array, offset, a._array.length);
+		System.arraycopy(temp, offset , _array, offset + a._array.length, temp.length - offset);
 	}
 	
 	//днярюрэ назейр он хмдейяс
