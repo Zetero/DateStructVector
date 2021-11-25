@@ -2,19 +2,17 @@ package all;
 
 public class ReVector <T> 
 {
-	protected int _increment;
 	protected Object[] _array;
-
+	
+	//Default constructor
+	ReVector()
+	{
+		_array = new Object[10];
+	}
+	
 	ReVector(int _size)
 	{
 		_array = new Object[_size];
-		_increment = _size;
-	}
-
-	ReVector(int size, int inc)
-	{
-		_array = new Object[size];
-		_increment = inc;
 	}
 
 	//Add object _o to the end of Vector
@@ -23,21 +21,14 @@ public class ReVector <T>
 		Object temp[] = _array.clone();
 		_array =  new Object[_array.length + 1];
 		System.arraycopy(temp, 0, _array, 0, temp.length);
-		add(_array.length-1, _o);
+		set(_array.length-1, _o);
 	}
 	
 	//Add object _0 by index to a Vector
-	public void add(int _index, T _o)
+	public void set(int _index, T _o)
 	{
-		if(_index < _array.length)
+		if(_index < size())
 			_array[_index] = _o;
-		else
-		{
-			Object temp[] = _array.clone();
-			_array = new Object[_array.length + _increment];
-			System.arraycopy(temp, 0, _array, 0, temp.length);
-			add(_index, _o);
-		}
 	}
 	
 	//Add object Vector a to the end of Vector
@@ -50,7 +41,7 @@ public class ReVector <T>
 	}
 	
 	//Add object with offset to a Vector
-	public void offsetAdd(int offset, T _o)
+	public void Insert(int offset, T _o)
 	{
 		Object[] temp = _array.clone();
 		_array = new Object[temp.length + 1];
@@ -60,7 +51,7 @@ public class ReVector <T>
 	}
 	
 	//Add Vector with offset to a Vector
-	public void offsetAdd(int offset, ReVector<T> a)
+	public void Insert(int offset, ReVector<T> a)
 	{
 		Object[] temp = _array.clone();
 		_array = new Object[temp.length + a._array.length];
