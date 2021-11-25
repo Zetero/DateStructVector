@@ -23,7 +23,7 @@ public class ReVector <T>
 		_increment = inc;
 	}
 
-	//бярюбхрэ б йнмеж сбекхвхбюъ бейрнп
+	//Add object _o to the end of Vector
 	void add(T _o)
 	{
 		Object temp[] = _array.clone();
@@ -32,7 +32,7 @@ public class ReVector <T>
 		add(_array.length-1, _o);
 	}
 
-	//бярюбхрэ б ъвеийс он хмдейяс
+	//Add object _0 by index to a Vector
 	void add(int _index, T _o)
 	{
 		if(_index < _array.length)
@@ -46,8 +46,8 @@ public class ReVector <T>
 		}
 	}
 	
-	//бярюбхрэ бейрнп б йнмеж
-	void add(ReVector a)
+	//Add object Vector a to the end of Vector
+	void add(ReVector<T> a)
 	{
 		Object[] temp = _array.clone();
 		_array = new Object[_array.length + a._array.length];
@@ -55,7 +55,7 @@ public class ReVector <T>
 		System.arraycopy(a._array, 0, _array, temp.length , a._array.length);
 	}
 	
-	//бярюбхрэ ян ялеыемхел
+	//Add object with offset to a Vector
 	void offsetAdd(int offset, T _o)
 	{
 		Object[] temp = _array.clone();
@@ -65,8 +65,8 @@ public class ReVector <T>
 		System.arraycopy(temp, offset , _array, offset + 1, temp.length - offset);
 	}
 	
-	//бярюбхрэ бейрнп ян ялеыемхел
-	void offsetAdd(int offset, ReVector a)
+	//Add Vector with offset to a Vector
+	void offsetAdd(int offset, ReVector<T> a)
 	{
 		Object[] temp = _array.clone();
 		_array = new Object[temp.length + a._array.length];
@@ -75,26 +75,26 @@ public class ReVector <T>
 		System.arraycopy(temp, offset , _array, offset + a._array.length, temp.length - offset);
 	}
 	
-	//днярюрэ назейр он хмдейяс
+	//Get object from Vector by index
 	Object get(int _index)
 	{
 		return _array[_index];
 	}
 	
-	//пюглеп йнмреимепю
+	//Get capacity 
 	int capacity()
 	{
 		return _array.length;
 	}
 
-	//нвхярйю бяецн бейрнпю
+	//Clear Vector cells
 	void clear()
 	{
 		for(int i = 0; i < _array.length; i++)
 			_array[i] = null;
 	}
 	
-	//хглемхрэ пюглеп
+	//Resize Vector
 	void resize(int _size)
 	{
 		Object[] temp = _array.clone();
