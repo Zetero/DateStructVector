@@ -16,7 +16,7 @@ public class ReVector <T>
 	}
 
 	//Add object _o to the end of Vector
-	public void add(T _o)
+	public void add(T _o) throws Exception
 	{
 		Object temp[] = _array.clone();
 		_array =  new Object[_array.length + 1];
@@ -25,10 +25,12 @@ public class ReVector <T>
 	}
 	
 	//Add object _0 by index to a Vector
-	public void set(int _index, T _o)
+	public void set(int _index, T _o) throws Exception
 	{
 		if(_index < size())
 			_array[_index] = _o;
+		else 
+			throw new Exception("The index element goes beyond the Vector");
 	}
 	
 	//Add object Vector a to the end of Vector
@@ -61,9 +63,12 @@ public class ReVector <T>
 	}
 	
 	//Get object from Vector by index
-	public Object get(int _index)
+	public Object get(int _index) throws Exception
 	{
-		return _array[_index];
+		if(_index < size())
+			return _array[_index];
+		else 
+			throw new Exception("The index goes beyond the Vector");
 	}
 	
 	//Get capacity 
