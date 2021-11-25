@@ -18,13 +18,13 @@ public class TrainingField
 		vector2.add(3, 2);
 		vector2.add(4, 1);
 		
-		for(int i = 0; i < vector.capacity(); i++)
+		for(int i = 0; i < vector.size(); i++)
 			System.out.println((i) + ")" + vector.get(i));
 		System.out.println();
 		
 		vector.offsetAdd(4, vector2);
 		
-		for(int i = 0; i < vector.capacity(); i++)
+		for(int i = 0; i < vector.size(); i++)
 			System.out.println((i) + ")" + vector.get(i));
 		System.out.println();
 	}

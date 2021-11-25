@@ -5,16 +5,10 @@ public class ReVector <T>
 	protected int _increment;
 	protected Object[] _array;
 
-	ReVector()
+	ReVector(int _size)
 	{
-		_increment = 10;
-		_array = new Object[10];
-	}
-
-	ReVector(int size)
-	{
-		_array = new Object[size];
-		_increment = 0;
+		_array = new Object[_size];
+		_increment = _size;
 	}
 
 	ReVector(int size, int inc)
@@ -24,16 +18,16 @@ public class ReVector <T>
 	}
 
 	//Add object _o to the end of Vector
-	void add(T _o)
+	public void add(T _o)
 	{
 		Object temp[] = _array.clone();
 		_array =  new Object[_array.length + 1];
 		System.arraycopy(temp, 0, _array, 0, temp.length);
 		add(_array.length-1, _o);
 	}
-//asdsadasd
+	
 	//Add object _0 by index to a Vector
-	void add(int _index, T _o)
+	public void add(int _index, T _o)
 	{
 		if(_index < _array.length)
 			_array[_index] = _o;
@@ -47,7 +41,7 @@ public class ReVector <T>
 	}
 	
 	//Add object Vector a to the end of Vector
-	void add(ReVector<T> a)
+	public void add(ReVector<T> a)
 	{
 		Object[] temp = _array.clone();
 		_array = new Object[_array.length + a._array.length];
@@ -56,7 +50,7 @@ public class ReVector <T>
 	}
 	
 	//Add object with offset to a Vector
-	void offsetAdd(int offset, T _o)
+	public void offsetAdd(int offset, T _o)
 	{
 		Object[] temp = _array.clone();
 		_array = new Object[temp.length + 1];
@@ -66,7 +60,7 @@ public class ReVector <T>
 	}
 	
 	//Add Vector with offset to a Vector
-	void offsetAdd(int offset, ReVector<T> a)
+	public void offsetAdd(int offset, ReVector<T> a)
 	{
 		Object[] temp = _array.clone();
 		_array = new Object[temp.length + a._array.length];
@@ -76,32 +70,29 @@ public class ReVector <T>
 	}
 	
 	//Get object from Vector by index
-	Object get(int _index)
+	public Object get(int _index)
 	{
 		return _array[_index];
 	}
 	
 	//Get capacity 
-	int capacity()
+	public int size()
 	{
 		return _array.length;
 	}
 
 	//Clear Vector cells
-	void clear()
+	public void clear()
 	{
 		for(int i = 0; i < _array.length; i++)
 			_array[i] = null;
 	}
 	
 	//Resize Vector
-	void resize(int _size)
+	public void resize(int _size)
 	{
 		Object[] temp = _array.clone();
 		_array = new Object[_size];
 		System.arraycopy(temp, 0, _array, 0, temp.length > _size ? _size : temp.length);
 	}
-	
-	
-
 }
