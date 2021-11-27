@@ -10,6 +10,7 @@ public class ReVector <T>
 		_array = new Object[10];
 	}
 	
+	//Constructor with size
 	ReVector(int _size)
 	{
 		_array = new Object[_size];
